@@ -1,11 +1,15 @@
 terraform {
-  backend "gcs" {
-    bucket = "myvik-tf-state-prod"
-    prefix = "terraform/state"
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+    }
   }
-}
 
-provider "google" {
-  project = var.project_id
-  region  = var.region
+  backend "remote" {
+    organization = "wespline"
+
+    workspaces {
+      name = "wespline-test"
+    }
+  }
 }
