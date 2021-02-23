@@ -29,3 +29,4 @@ override.tf.json
 # example: *tfplan*
 
 gcloud-credentials.json
+.terraform.lock.hcl
